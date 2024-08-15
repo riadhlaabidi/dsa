@@ -1,2 +1,2 @@
 # dsa
-A collection of Algorithms and Data Structures implemented in java.
+Collection of algorithms, data structures and problems implemented in Java and C.
