@@ -3,26 +3,27 @@
 #include <stdlib.h>
 #include <string.h>
 
-char* string_hash(char* s, int k) {
+char *string_hash(char *s, int k)
+{
     int n = strlen(s);
-    char *ans = (char*) malloc((n / k) * sizeof(char));
+    char *ans = (char *)malloc((n / k) * sizeof(char));
 
     int c = 0;
     int j = 0;
 
     for (int i = 0; i < n; ++i) {
-        c += s[i] - 'a'; 
+        c += s[i] - 'a';
 
-	if ((i + 1) % k == 0) {
-	    ans[j++] = (char) (c % 26 + 'a');
-	    c = 0;
-	}
+        if ((i + 1) % k == 0) {
+            ans[j++] = (char)(c % 26 + 'a');
+            c = 0;
+        }
     }
 
-    return ans; 
-} 
+    return ans;
+}
 
-int main(void) 
+int main(void)
 {
     char s[] = "abcd";
     char expected[] = "bf";
