@@ -25,4 +25,6 @@ int main(void)
     assert(actual == expected);
 
     printf("Correct %d", actual);
+
+    return 0;
 }
