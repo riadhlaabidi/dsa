@@ -7,7 +7,7 @@ int has_cycle(ListNode *head)
     ListNode *slow = head;
     ListNode *fast = head;
 
-    while (slow && fast->next) {
+    while (slow && fast->next && fast->next->next) {
         slow = slow->next;
         fast = fast->next->next;
         if (fast == slow)
