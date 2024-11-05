@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 struct TreeNode {
     int val;
     struct TreeNode *left;
@@ -30,3 +32,5 @@ int isSubtree(struct TreeNode *root, struct TreeNode *subRoot)
     return walk(root, subRoot) || isSubtree(root->left, subRoot) ||
            isSubtree(root->right, subRoot);
 }
+
+int main(void) { return EXIT_SUCCESS; }

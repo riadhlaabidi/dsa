@@ -26,3 +26,5 @@ int **construct_2d_array(int *original, int original_size, int m, int n,
 
     return ans;
 }
+
+int main(void) { return EXIT_SUCCESS; }

@@ -27,3 +27,5 @@ int *missing_rolls(int *rolls, int rolls_size, int mean, int n,
     *return_size = n;
     return ans;
 }
+
+int main(void) { return EXIT_SUCCESS; }

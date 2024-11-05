@@ -25,3 +25,5 @@ struct TreeNode *sortedArrayToBST(int *nums, int numsSize)
 {
     return construct_bst(nums, 0, numsSize);
 }
+
+int main(void) { return EXIT_SUCCESS; }

@@ -37,3 +37,5 @@ struct TreeNode *sortedListToBST(struct ListNode *head)
 {
     return construct_bst(head, NULL);
 }
+
+int main(void) { return EXIT_SUCCESS; }

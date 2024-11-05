@@ -56,3 +56,5 @@ struct ListNode **split_list_to_parts(struct ListNode *head, int k,
     *return_size = k;
     return parts;
 }
+
+int main(void) { return EXIT_SUCCESS; }

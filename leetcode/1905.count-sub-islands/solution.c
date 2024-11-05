@@ -27,7 +27,7 @@ int is_sub_island(int row, int col, int **grid1, int **grid2, int n, int m,
 }
 
 int countSubIslands(int **grid1, int grid1_size, int *grid1_col_size,
-                    int **grid2, int grid2_size, int *grid2_col_size)
+                    int **grid2)
 {
 
     int **visited = (int **)malloc(grid1_size * sizeof(int *));
@@ -61,3 +61,5 @@ int countSubIslands(int **grid1, int grid1_size, int *grid1_col_size,
     free(visited);
     return sub_count;
 }
+
+int main(void) { return EXIT_SUCCESS; }

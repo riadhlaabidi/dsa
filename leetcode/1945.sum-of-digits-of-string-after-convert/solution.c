@@ -44,3 +44,5 @@ int get_lucky(char *s, int k)
     free(str_num_repr);
     return sum;
 }
+
+int main(void) { return EXIT_SUCCESS; }

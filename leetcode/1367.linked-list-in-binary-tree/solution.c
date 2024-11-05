@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 struct ListNode {
     int val;
     struct ListNode *next;
@@ -35,3 +37,5 @@ int is_sub_path(struct ListNode *head, struct TreeNode *root)
     return walk(head, root) || is_sub_path(head, root->left) ||
            is_sub_path(head, root->right);
 }
+
+int main(void) { return EXIT_SUCCESS; }

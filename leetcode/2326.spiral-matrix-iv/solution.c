@@ -43,3 +43,5 @@ int **spiralMatrix(int m, int n, struct ListNode *head, int *returnSize,
 
     return res;
 }
+
+int main(void) { return EXIT_SUCCESS; }
