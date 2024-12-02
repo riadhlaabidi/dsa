@@ -1,6 +1,7 @@
 package main
 
 import (
+	"aoc/util"
 	"fmt"
 	"slices"
 	"strconv"
@@ -67,8 +68,8 @@ func solvePartII(lines [][]byte) {
 }
 
 func main() {
-	testLines := ReadInput("input/day1.test")
-	inputLines := ReadInput("input/day1.input")
+	testLines := util.ReadInput("day1.test")
+	inputLines := util.ReadInput("day1.input")
 	fmt.Printf("---- Day 1 Test ----\n")
 	solvePartI(testLines)
 	solvePartII(testLines)

@@ -1,4 +1,4 @@
-package main
+package util
 
 import (
 	"bufio"
@@ -11,6 +11,7 @@ func ReadInput(path string) [][]byte {
 	if err != nil {
 		panic(err)
 	}
+	defer file.Close()
 
 	reader := bufio.NewReader(file)
 	lines := make([][]byte, 0)
@@ -27,6 +28,5 @@ func ReadInput(path string) [][]byte {
 		lines = append(lines, line[:n-1])
 	}
 
-	file.Close()
 	return lines
 }
