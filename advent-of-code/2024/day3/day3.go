@@ -3,17 +3,7 @@ package main
 import (
 	"aoc/util"
 	"fmt"
-	"strconv"
 )
-
-func getInt(str string) int {
-	n, err := strconv.ParseInt(str, 10, 0)
-	if err != nil {
-		panic(fmt.Sprintf("Failed to parse int from \"%s\"", str))
-	}
-
-	return int(n)
-}
 
 func solvePartI(lines [][]byte) {
 	ans := 0
@@ -37,11 +27,11 @@ func solvePartI(lines [][]byte) {
 				for i < len(line) {
 					ch := line[i]
 					if ch == ',' && i > lOperandIdx {
-						x = getInt(string(line[lOperandIdx:i]))
+						x = util.GetInt(string(line[lOperandIdx:i]))
 						rOperandIdx = i + 1
 					} else if ch == ')' {
 						if rOperandIdx > lOperandIdx+1 {
-							y = getInt(string(line[rOperandIdx:i]))
+							y = util.GetInt(string(line[rOperandIdx:i]))
 							ans += x * y
 						}
 						break
@@ -110,11 +100,11 @@ func solvePartII(lines [][]byte) {
 				for i < len(line) {
 					ch := line[i]
 					if ch == ',' && i > lOperandIdx {
-						x = getInt(string(line[lOperandIdx:i]))
+						x = util.GetInt(string(line[lOperandIdx:i]))
 						rOperandIdx = i + 1
 					} else if ch == ')' {
 						if rOperandIdx > lOperandIdx+1 {
-							y = getInt(string(line[rOperandIdx:i]))
+							y = util.GetInt(string(line[rOperandIdx:i]))
 							ans += x * y
 						}
 						break
@@ -133,10 +123,10 @@ func solvePartII(lines [][]byte) {
 func main() {
 	testLines := util.ReadInput("day3.test")
 	inputLines := util.ReadInput("day3.input")
-	fmt.Printf("---- Day 1 Test ----\n")
+	fmt.Printf("---- Day 3 Test ----\n")
 	solvePartI(testLines)
 	solvePartII(testLines)
-	fmt.Printf("---- Day 1 Input ----\n")
+	fmt.Printf("---- Day 3 Input ----\n")
 	solvePartI(inputLines)
 	solvePartII(inputLines)
 }

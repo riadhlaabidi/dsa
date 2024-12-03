@@ -4,18 +4,8 @@ import (
 	"aoc/util"
 	"fmt"
 	"slices"
-	"strconv"
 	"strings"
 )
-
-func getInt(str string) int {
-	n, err := strconv.ParseInt(str, 10, 0)
-	if err != nil {
-		panic(fmt.Sprintf("Failed to parse int from \"%s\"", str))
-	}
-
-	return int(n)
-}
 
 func solvePartI(lines [][]byte) {
 	n := len(lines)
@@ -24,8 +14,8 @@ func solvePartI(lines [][]byte) {
 
 	for i, line := range lines {
 		nums := strings.Split(string(line), "   ")
-		left[i] = getInt(nums[0])
-		right[i] = getInt(nums[1])
+		left[i] = util.GetInt(nums[0])
+		right[i] = util.GetInt(nums[1])
 	}
 
 	slices.Sort(left)
@@ -52,10 +42,10 @@ func solvePartII(lines [][]byte) {
 	for _, line := range lines {
 		nums := strings.Split(string(line), "   ")
 
-		leftNum := getInt(nums[0])
+		leftNum := util.GetInt(nums[0])
 		left = append(left, leftNum)
 
-		rightNum := getInt(nums[1])
+		rightNum := util.GetInt(nums[1])
 		right[rightNum] += 1
 	}
 

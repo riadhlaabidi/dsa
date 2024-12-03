@@ -2,8 +2,10 @@ package util
 
 import (
 	"bufio"
+	"fmt"
 	"io"
 	"os"
+	"strconv"
 )
 
 func ReadInput(path string) [][]byte {
@@ -29,4 +31,13 @@ func ReadInput(path string) [][]byte {
 	}
 
 	return lines
+}
+
+func GetInt(str string) int {
+	n, err := strconv.ParseInt(str, 10, 0)
+	if err != nil {
+		panic(fmt.Sprintf("Failed to parse int from \"%s\"", str))
+	}
+
+	return int(n)
 }

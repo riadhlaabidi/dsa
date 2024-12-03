@@ -4,18 +4,8 @@ import (
 	"aoc/util"
 	"fmt"
 	"slices"
-	"strconv"
 	"strings"
 )
-
-func getInt(str string) int {
-	n, err := strconv.ParseInt(str, 10, 0)
-	if err != nil {
-		panic(fmt.Sprintf("Failed to parse int from \"%s\"", str))
-	}
-
-	return int(n)
-}
 
 func isSafe(nums []int) bool {
 	increasing := (nums[1] - nums[0]) > 0
@@ -43,7 +33,7 @@ func solvePartI(lines [][]byte) {
 
 		nums := []int{}
 		for _, str := range strNums {
-			nums = append(nums, getInt(str))
+			nums = append(nums, util.GetInt(str))
 		}
 
 		if isSafe(nums) {
@@ -62,7 +52,7 @@ func solvePartII(lines [][]byte) {
 
 		nums := []int{}
 		for _, str := range strNums {
-			nums = append(nums, getInt(str))
+			nums = append(nums, util.GetInt(str))
 		}
 
 		if isSafe(nums) {
@@ -85,10 +75,10 @@ func solvePartII(lines [][]byte) {
 func main() {
 	testLines := util.ReadInput("day2.test")
 	inputLines := util.ReadInput("day2.input")
-	fmt.Printf("---- Day 1 Test ----\n")
+	fmt.Printf("---- Day 2 Test ----\n")
 	solvePartI(testLines)
 	solvePartII(testLines)
-	fmt.Printf("---- Day 1 Input ----\n")
+	fmt.Printf("---- Day 2 Input ----\n")
 	solvePartI(inputLines)
 	solvePartII(inputLines)
 }
