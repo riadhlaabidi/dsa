@@ -127,4 +127,6 @@ tags
 # Persistent undo
 [._]*.un~
 
+.env
+
 # End of https://www.toptal.com/developers/gitignore/api/c,java,vim,maven,go
