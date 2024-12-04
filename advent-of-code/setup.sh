@@ -45,6 +45,43 @@ if [ -f "$src_file_path" ]; then
     echo "Source code file \"$src_file_path\" exists, Skipping..."
 else
     touch "$day_path/day$day.go"
+    cat > $src_file_path <<EOF
+package main
+
+import (
+	"aoc/util"
+	"fmt"
+)
+
+func solvePartI(lines [][]byte) {
+	ans := 0
+
+	for i, line := range lines {
+	}
+
+	fmt.Printf("Part 1: %v\n", ans)
+}
+
+func solvePartII(lines [][]byte) {
+	ans := 0
+
+	for i, line := range lines {
+	}
+
+	fmt.Printf("Part 2: %v\n", ans)
+}
+
+func main() {
+	testLines := util.ReadInput("day$day.test")
+	inputLines := util.ReadInput("day$day.input")
+	fmt.Printf("---- Day $day Test ----\n")
+	solvePartI(testLines)
+	solvePartII(testLines)
+	fmt.Printf("---- Day $day Input ----\n")
+	solvePartI(inputLines)
+	solvePartII(inputLines)
+}
+EOF
 fi
 
 if [ -f "$test_file_path" ]; then
