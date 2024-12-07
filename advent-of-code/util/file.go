@@ -41,3 +41,12 @@ func GetInt(str string) int {
 
 	return int(n)
 }
+
+func GetInt64(str string) int64 {
+	n, err := strconv.ParseInt(str, 10, 0)
+	if err != nil {
+		panic(fmt.Sprintf("Failed to parse int from \"%s\"", str))
+	}
+
+	return n
+}
