@@ -64,8 +64,40 @@ func solvePartI(lines [][]byte) {
 }
 
 func solvePartII(lines [][]byte) {
-	ans := 0
-	fmt.Printf("Part 2: %v\n", ans)
+	m := 103
+	n := 101
+	robots := len(lines)
+
+	for s := 1; s < 10000; s++ {
+		seen := make(map[[2]int]bool)
+		for _, line := range lines {
+			pv := strings.Split(string(line), " ")
+			p := strings.Split(strings.Split(pv[0], "=")[1], ",")
+			v := strings.Split(strings.Split(pv[1], "=")[1], ",")
+			pj := util.GetInt(p[0])
+			pi := util.GetInt(p[1])
+			vj := util.GetInt(v[0])
+			vi := util.GetInt(v[1])
+
+			finali := (pi + vi*s) % m
+			finalj := (pj + vj*s) % n
+
+			if finali < 0 {
+				finali = m + finali
+			}
+
+			if finalj < 0 {
+				finalj = n + finalj
+			}
+
+			seen[[2]int{finali, finalj}] = true
+		}
+
+		if len(seen) == robots {
+			fmt.Printf("Part 2: %v\n", s)
+			break
+		}
+	}
 }
 
 func main() {
@@ -75,6 +107,6 @@ func main() {
 	solvePartI(testLines) /* 12 */
 	// solvePartII(testLines)
 	fmt.Printf("---- Day 14 Input ----\n")
-	solvePartI(inputLines) /* 236628054 */
-	// solvePartII(inputLines)
+	solvePartI(inputLines)  /* 236628054 */
+	solvePartII(inputLines) /* 7584 */
 }
