@@ -1,5 +1,14 @@
 package util
 
+type Cell struct {
+	Row int
+	Col int
+}
+
+func NewCell(row, col int) Cell {
+	return Cell{row, col}
+}
+
 var Directions = [][]int{
 	{0, 1},  // right
 	{1, 0},  // down
