@@ -49,3 +49,5 @@ void free_fe(FindElements *fe)
     free(fe);
     fe = NULL;
 }
+
+int main(void) { return 1; }
