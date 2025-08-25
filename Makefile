@@ -6,7 +6,7 @@ OBJECTS := $(SRCS:.c=.o)
 all: $(OBJECTS)
 
 leetcode/%/solution.o: leetcode/%/solution.c
-	$(CC) $(CFLAGS) -o $@ $<
+	$(CC) -g $(CFLAGS) -o $@ $<
 
 clean:
 	@rm -f $(OBJECTS) 
