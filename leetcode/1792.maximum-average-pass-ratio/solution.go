@@ -1,4 +1,4 @@
-package main
+package maximumaveragepassratio
 
 import "container/heap"
 

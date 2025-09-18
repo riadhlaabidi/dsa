@@ -1,6 +1,7 @@
-package main
+package maximumaveragepassratio
 
 import (
+	"dsa/internal/testutil"
 	"math"
 	"testing"
 )
@@ -16,7 +17,5 @@ func TestMaxAverageRatio(t *testing.T) {
 	want := 0.78333
 	got := math.Round(maxAverageRatio(classes, extraStudents)*1e5) / 1e5
 
-	if got != want {
-		t.Errorf("Max average ratio, want = %f, got = %f", want, got)
-	}
+	testutil.AssertEquals(t, want, got)
 }

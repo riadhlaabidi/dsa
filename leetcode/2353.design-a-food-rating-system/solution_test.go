@@ -1,12 +1,7 @@
-package solution
+package foodrating
 
+import "dsa/internal/testutil"
 import "testing"
-
-func assertEquals(t *testing.T, want, got string) {
-	if got != want {
-		t.Errorf("want = %s, got = %s", want, got)
-	}
-}
 
 func TestFoodRatings(t *testing.T) {
 	foods := []string{"kimchi", "miso", "sushi", "moussaka", "ramen", "bulgogi"}
@@ -15,14 +10,14 @@ func TestFoodRatings(t *testing.T) {
 
 	foodRatings := Constructor(foods, cuisines, ratings)
 
-	assertEquals(t, "kimchi", foodRatings.highestRated("korean"))
-	assertEquals(t, "ramen", foodRatings.highestRated("japanese"))
+	testutil.AssertEquals(t, "kimchi", foodRatings.highestRated("korean"))
+	testutil.AssertEquals(t, "ramen", foodRatings.highestRated("japanese"))
 
 	foodRatings.changeRating("sushi", 16)
 
-	assertEquals(t, "sushi", foodRatings.highestRated("japanese"))
+	testutil.AssertEquals(t, "sushi", foodRatings.highestRated("japanese"))
 
 	foodRatings.changeRating("ramen", 16)
 
-	assertEquals(t, "ramen", foodRatings.highestRated("japanese"))
+	testutil.AssertEquals(t, "ramen", foodRatings.highestRated("japanese"))
 }
