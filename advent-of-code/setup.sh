@@ -2,7 +2,7 @@
 
 usage() {
     echo "Usage: `basename $0` day year"
-    echo -e "\tday: between 1..25 (if omitted year should also be omitted)"
+    echo -e "\tday: between 1..12 (if omitted year should also be omitted)"
     echo -e "\tyear: between 2015..$current_year (if only day is specified, year is the current year)"
     echo
     echo -e "\tNo arguments: setup the current day if it's already December this year"
@@ -17,13 +17,18 @@ day=${1:-$current_day}
 year=${2:-$current_year}
 
 if [ -z "$1" ]; then
-    if [[ $current_month -ne 12 || $current_day -gt 25 ]]; then
+    if [[ $current_month -ne 12 || $current_day -gt 12 ]]; then
         echo "It's not December yet, You should provide a day number to setup"    
         usage 
     fi
 fi
 
-if [[ "$day" -lt 1 || "$day" -gt 25 ]]; then
+if [[ "$year" -eq "$current_year" && "$day" -gt "$current_day" ]]; then
+    echo "Looks like a future"    
+    usage 
+fi
+
+if [[ "$day" -lt 1 || "$day" -gt 12 ]]; then
     echo "Invalid day number"    
     usage 
 fi
@@ -37,15 +42,14 @@ fi
 day_path="$year/day$day"
 mkdir -p $day_path
 
-src_file_path="$day_path/day$day.go"
-test_file_path="$day_path/day$day.test"
-input_file_path="$day_path/day$day.input"
+src_file_path="$day_path/solution.go"
+test_file_path="$day_path/test_input"
+input_file_path="$day_path/input"
 
 if [ -f "$src_file_path" ]; then
     echo "Source code file \"$src_file_path\" exists, Skipping..."
 else
-    touch "$day_path/day$day.go"
-    cat > $src_file_path <<EOF
+    cat > "$src_file_path" <<EOF
 package main
 
 import (
@@ -87,13 +91,13 @@ fi
 if [ -f "$test_file_path" ]; then
     echo "Test input file \"$test_file_path\" exists, Skipping..."
 else
-    touch "$day_path/day$day.test"
+    touch "$test_file_path"
 fi
 
 if [ -f "$input_file_path" ]; then
     echo "Input file \"$input_file_path\" exists, Skipping..."
 else
-    touch "$day_path/day$day.input"
+    touch "$input_file_path"
     input_url="https://adventofcode.com/$year/day/$day/input"
     if [ ! -f ".env" ]; then
         echo ".env file not found!"
