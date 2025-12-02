@@ -23,7 +23,7 @@ if [ -z "$1" ]; then
     fi
 fi
 
-if [[ "$year" -eq "$current_year" && "$day" -gt "$current_day" ]]; then
+if [[ "$year" -eq "$current_year" && "$current_month" -eq 12 && "$day" -gt "$current_day" ]]; then
     echo "Looks like a future"    
     usage 
 fi
@@ -66,24 +66,24 @@ func solvePartI(lines [][]byte) {
 	fmt.Printf("Part 1: %v\n", ans)
 }
 
-func solvePartII(lines [][]byte) {
-	ans := 0
-
-	for i, line := range lines {
-	}
-
-	fmt.Printf("Part 2: %v\n", ans)
-}
+//func solvePartII(lines [][]byte) {
+//	ans := 0
+//
+//	for i, line := range lines {
+//	}
+//
+//	fmt.Printf("Part 2: %v\n", ans)
+//}
 
 func main() {
-	testLines := util.ReadInput("day$day.test")
-	inputLines := util.ReadInput("day$day.input")
+	testLines := util.ReadInput("test_input")
+	//inputLines := util.ReadInput("input")
 	fmt.Printf("---- Day $day Test ----\n")
 	solvePartI(testLines)
-	solvePartII(testLines)
-	fmt.Printf("---- Day $day Input ----\n")
-	solvePartI(inputLines)
-	solvePartII(inputLines)
+	//solvePartII(testLines)
+	//fmt.Printf("---- Day $day Input ----\n")
+	//solvePartI(inputLines)
+	//solvePartII(inputLines)
 }
 EOF
 fi

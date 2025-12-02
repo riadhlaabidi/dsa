@@ -66,6 +66,7 @@ func solvePartII(lines [][]byte) {
 func main() {
 	testLines := util.ReadInput("test_input")
 	inputLines := util.ReadInput("input")
+	fmt.Printf("---- Day 1 Test ----\n")
 	solvePartI(testLines)  // 3
 	solvePartII(testLines) // 6
 	fmt.Printf("---- Day 1 Input ----\n")
